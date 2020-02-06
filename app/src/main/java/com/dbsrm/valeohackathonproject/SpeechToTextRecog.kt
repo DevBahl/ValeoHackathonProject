@@ -58,9 +58,11 @@ class SpeechToTextRecog : AppCompatActivity() {
 
         if(str1.equals(result)||str2.equals(result)||str3.equals(result)||str4.equals(result)){
             Toast.makeText(this,"OK",Toast.LENGTH_LONG).show()
+            startActivity(Intent(this,Bluetooth::class.java))
+
         }
         else{
-            Toast.makeText(this,"error",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"error Try Again!",Toast.LENGTH_LONG).show()
         }
 
     }
