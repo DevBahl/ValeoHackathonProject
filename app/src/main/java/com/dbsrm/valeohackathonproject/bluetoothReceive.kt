@@ -14,25 +14,24 @@ import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
 import java.io.IOException
 import java.io.InputStream
-import java.io.OutputStream
 import java.util.*
 
 
-class Bluetooth : AppCompatActivity() {
+class bluetoothReceive : AppCompatActivity() {
     var listen: Button? = null
     var send: Button? = null
     var listDevices: Button? = null
     var listView: ListView? = null
+    var msg_box: TextView? = null
     var status: TextView? = null
-    var writeMsg: EditText? = null
     var bluetoothAdapter: BluetoothAdapter? = null
     lateinit var btArray: Array<BluetoothDevice?>
     var sendReceive: SendReceive? = null
     var REQUEST_ENABLE_BLUETOOTH = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bluetooth)
-        findViewByIdea()
+        setContentView(R.layout.activity_bluetooth_receive)
+        findViewByIdea1()
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         if (bluetoothAdapter?.isEnabled()!!) {
             val enableIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
@@ -76,10 +75,6 @@ class Bluetooth : AppCompatActivity() {
                 clientClass.start()
                 status!!.text = "Connecting"
             }
-        send!!.setOnClickListener {
-            val string = writeMsg!!.text.toString()
-            sendReceive!!.write(string.toByteArray())
-        }
     }
 
     var handler = Handler(Handler.Callback { msg ->
@@ -88,17 +83,22 @@ class Bluetooth : AppCompatActivity() {
             STATE_CONNECTING -> status!!.text = "CONNECTING"
             STATE_CONNECTED -> status!!.text = "Connected"
             STATE_CONNECTION_FAILED -> status!!.text = "Connection Failed"
+            STATE_MESSAGE_RECEIVED -> {
+                val readBuff = msg.obj as ByteArray
+                val tempMsg = String(readBuff, 0, msg.arg1)
+                msg_box!!.text = tempMsg
+            }
         }
         true
     })
 
-    private fun findViewByIdea() {
-        listen = findViewById<View>(R.id.listen) as Button
-        send = findViewById<View>(R.id.send) as Button
-        listView = findViewById<View>(R.id.listview) as ListView
-        status = findViewById<View>(R.id.status) as TextView
-        writeMsg = findViewById<View>(R.id.writemsg) as EditText
-        listDevices = findViewById<View>(R.id.listDevices) as Button
+    private fun findViewByIdea1() {
+        listen = findViewById<View>(R.id.listen1) as Button
+        send = findViewById<View>(R.id.send1) as Button
+        listView = findViewById<View>(R.id.listview1) as ListView
+        msg_box = findViewById<View>(R.id.msg1) as TextView
+        status = findViewById<View>(R.id.status1) as TextView
+        listDevices = findViewById<View>(R.id.listDevices1) as Button
     }
 
     private inner class ServerClass : Thread() {
@@ -169,7 +169,6 @@ class Bluetooth : AppCompatActivity() {
 
     inner class SendReceive(private val bluetoothSocket: BluetoothSocket) : Thread() {
         private val inputStream: InputStream?
-        private val outputStream: OutputStream?
         override fun run() {
             val buffer = ByteArray(1024)
             var bytes: Int
@@ -188,25 +187,17 @@ class Bluetooth : AppCompatActivity() {
             }
         }
 
-        fun write(bytes: ByteArray?) {
-            try {
-                outputStream!!.write(bytes)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
+
 
         init {
             var tempIn: InputStream? = null
-            var tempOut: OutputStream? = null
             try {
                 tempIn = bluetoothSocket.inputStream
-                tempOut = bluetoothSocket.outputStream
             } catch (e: IOException) {
                 e.printStackTrace()
             }
             inputStream = tempIn
-            outputStream = tempOut
+
         }
     }
 

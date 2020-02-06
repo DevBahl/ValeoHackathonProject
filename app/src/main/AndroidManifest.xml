@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Bluetooth"></activity>
+        <activity android:name=".bluetoothReceive"></activity>
+        <activity android:name=".Bluetooth" />
         <activity android:name=".SpeechToTextRecog" />
         <activity
             android:name=".MainActivity"

@@ -15,5 +15,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,SpeechToTextRecog::class.java)
             startActivity(intent)
         }
+        receivebtn.setOnClickListener {
+            val intent = Intent(this,bluetoothReceive::class.java)
+            startActivity(intent)
+        }
     }
 }
