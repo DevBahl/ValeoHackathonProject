@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".firstwalkthrfragment">
+    tools:context=".LUT"
+    android:background="@drawable/valeoback">
+
+
 
     <ImageView
-        android:id="@+id/fragmentfirstimage"
-        android:layout_width="545dp"
-        android:layout_height="747dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="13dp"
-        android:src="@drawable/fragmentfirstimage"
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="263dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578"  />
+        app:srcCompat="@drawable/lutimage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

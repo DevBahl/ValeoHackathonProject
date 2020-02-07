@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".walkthrmain"></activity>
+        <activity android:name=".LUT"></activity>
+        <activity android:name=".walkthrmain" />
         <activity android:name=".secondwalkthrfragment" />
         <activity android:name=".firstwalkthrfragment" />
         <activity android:name=".error" />

@@ -19,7 +19,6 @@ import java.util.*
 
 class bluetoothReceive : AppCompatActivity() {
     var listen: Button? = null
-    var send: Button? = null
     var listDevices: Button? = null
     var listView: ListView? = null
     var msg_box: TextView? = null
@@ -94,7 +93,6 @@ class bluetoothReceive : AppCompatActivity() {
 
     private fun findViewByIdea1() {
         listen = findViewById<View>(R.id.listen1) as Button
-        send = findViewById<View>(R.id.send1) as Button
         listView = findViewById<View>(R.id.listview1) as ListView
         msg_box = findViewById<View>(R.id.msg1) as TextView
         status = findViewById<View>(R.id.status1) as TextView

@@ -25,5 +25,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        lutBtn.setOnClickListener {
+            startActivity(Intent(this,LUT::class.java))
+        }
     }
 }
