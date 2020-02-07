@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_bluetooth.*
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
@@ -24,7 +25,7 @@ class Bluetooth : AppCompatActivity() {
     var listDevices: Button? = null
     var listView: ListView? = null
     var status: TextView? = null
-    var writeMsg: EditText? = null
+    var writeMsg: TextView? = null
     var bluetoothAdapter: BluetoothAdapter? = null
     lateinit var btArray: Array<BluetoothDevice?>
     var sendReceive: SendReceive? = null
@@ -39,6 +40,9 @@ class Bluetooth : AppCompatActivity() {
             startActivityForResult(enableIntent, REQUEST_ENABLE_BLUETOOTH)
         }
         implementListeners()
+        var intent = intent
+        val result = intent.getStringExtra("Your Result is: ")
+        writemsg.text="Your Result is: "+result
     }
 
     private fun implementListeners() {
@@ -97,7 +101,7 @@ class Bluetooth : AppCompatActivity() {
         send = findViewById<View>(R.id.send) as Button
         listView = findViewById<View>(R.id.listview) as ListView
         status = findViewById<View>(R.id.status) as TextView
-        writeMsg = findViewById<View>(R.id.writemsg) as EditText
+        writeMsg = findViewById<View>(R.id.writemsg) as TextView
         listDevices = findViewById<View>(R.id.listDevices) as Button
     }
 

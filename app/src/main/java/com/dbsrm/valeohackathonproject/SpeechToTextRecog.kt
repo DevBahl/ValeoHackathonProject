@@ -1,10 +1,12 @@
 package com.dbsrm.valeohackathonproject
 
+
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_speech_to_text_recog.*
 import java.util.*
@@ -49,15 +51,20 @@ class SpeechToTextRecog : AppCompatActivity() {
         }
     }
 
+
     fun checkRecogText(result: String) {
-        var str1: String = "Hello."
+        var str1: String = "move forward"
         var str2: String = "move left"
         var str3: String = "move right"
         var str4: String = "move back"
 
+        val recogText = findViewById<TextView>(R.id.recogText)
         if(str1.equals(result)||str2.equals(result)||str3.equals(result)||str4.equals(result)){
             Toast.makeText(this,"OK",Toast.LENGTH_LONG).show()
-            startActivity(Intent(this,Bluetooth::class.java))
+            var result = recogText.text.toString()
+            val intent=Intent(this,Bluetooth::class.java)
+            intent.putExtra("Your Result is: ",result)
+            startActivity(intent)
 
         }
         else{
