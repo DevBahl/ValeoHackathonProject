@@ -22,6 +22,12 @@ class SpeechToTextRecog : AppCompatActivity() {
         speechrecogbtn.setOnClickListener {
             speak()
         }
+        back1.setOnClickListener {
+            startActivity(Intent(this,MainActivity::class.java))
+        }
+        home1.setOnClickListener {
+            startActivity(Intent(this,MainActivity::class.java))
+        }
     }
 
     private fun speak() {
@@ -68,7 +74,7 @@ class SpeechToTextRecog : AppCompatActivity() {
 
         }
         else{
-            Toast.makeText(this,"error Try Again!",Toast.LENGTH_LONG).show()
+            startActivity(Intent(this,error::class.java))
         }
 
     }

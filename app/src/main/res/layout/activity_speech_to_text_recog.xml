@@ -4,38 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SpeechToTextRecog">
+    tools:context=".SpeechToTextRecog"
+    android:background="@drawable/valeoback">
 
     <TextView
         android:id="@+id/recogText"
-        android:layout_width="405dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="623dp"
+        android:layout_width="283dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="400dp"
+        android:background="@drawable/input_back"
+        android:hint="Speak to get the text"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Speak to get the text"
-        android:textSize="30sp"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/speechrecogbtn"
-        android:layout_width="138dp"
-        android:layout_height="107dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="169dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginBottom="359dp"
-        android:background="#ffffff"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="400dp"
+        android:background="@drawable/mic"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_mic_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/recogText"
+        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="432dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recogText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/greenrect" />
+
+    <ImageView
+        android:id="@+id/home1"
+        android:layout_width="105dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="68dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/settings1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/back1"
+        app:srcCompat="@drawable/componenthouse" />
+
+    <ImageView
+        android:id="@+id/back1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="80dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.669"
+        app:srcCompat="@drawable/backarrow" />
+
+    <ImageView
+        android:id="@+id/settings1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@drawable/settings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

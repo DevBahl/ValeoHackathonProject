@@ -13,11 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bluetoothReceive"></activity>
+        <activity android:name=".walkthrmain"></activity>
+        <activity android:name=".secondwalkthrfragment" />
+        <activity android:name=".firstwalkthrfragment" />
+        <activity android:name=".error" />
+        <activity android:name=".bluetoothReceive" />
         <activity android:name=".Bluetooth" />
         <activity android:name=".SpeechToTextRecog" />
+        <activity android:name=".MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".splashscreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
