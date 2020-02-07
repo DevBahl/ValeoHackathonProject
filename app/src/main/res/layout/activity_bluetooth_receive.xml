@@ -35,16 +35,19 @@
 
     <TextView
         android:id="@+id/msg1"
-        android:layout_width="318dp"
-        android:layout_height="46dp"
+        android:layout_width="217dp"
+        android:layout_height="64dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="181dp"
         android:layout_marginBottom="64dp"
         android:text="Result is: "
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/send"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/status1"
